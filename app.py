@@ -54,49 +54,49 @@ if menu == "八字排盤":
         if name:
             with st.spinner("正在計算八字..."):
                 # 調用八字計算模塊
-                try:
-                    result = bazi.calculate_bazi(
-                        year=birth_date.year,
-                        month=birth_date.month,
-                        day=birth_date.day,
-                        hour=birth_time.hour
-                    )
-                    
-                    st.success("✅ 計算完成！")
-                    
-                    # 顯示結果
-                    st.subheader(f"📊 {name} 的八字排盤結果")
-                    
-                    col1, col2, col3, col4 = st.columns(4)
-                                        with col1:
-                year_p = result.get('year_pillar', {})
-                st.metric("年柱", f"{year_p.get('stem', '')}{year_p.get('branch', '')}" if isinstance(year_p, dict) else str(year_p))
-                    with col2:
-                month_p = result.get('month_pillar', {})
-                st.metric("月柱", f"{month_p.get('stem', '')}{month_p.get('branch', '')}" if isinstance(month_p, dict) else str(month_p))
-                    with col3:
-                day_p = result.get('day_pillar', {})
-                st.metric("日柱", f"{day_p.get('stem', '')}{day_p.get('branch', '')}" if isinstance(day_p, dict) else str(day_p))
-                    with col4:
-                hour_p = result.get('hour_pillar', {})
-                st.metric("時柱", f"{hour_p.get('stem', '')}{hour_p.get('branch', '')}" if isinstance(hour_p, dict) else str(hour_p))
-                    
-                    # 五行分析
-                    st.subheader("🌟 五行分析")
-                    elements = result.get('elements', {})
-                    if elements:
-                        cols = st.columns(5)
-                        for i, (element, count) in enumerate(elements.items()):
-                            with cols[i]:
-                                st.metric(element, count)
-                    
-                    # 詳細解析
-                    st.subheader("📖 命理解析")
-                    st.info(result.get('analysis', '正在分析中...'))
-                    
-                except Exception as e:
-                    st.error(f"❌ 計算出錯: {str(e)}")
-                    st.info("💡 這是演示版本，完整功能正在開發中")
+            try:
+                result = bazi.calculate_bazi(
+                    year=birth_date.year,
+                    month=birth_date.month,
+                    day=birth_date.day,
+                    hour=birth_time.hour
+                )
+                
+                st.success("✅ 計算完成！")
+                
+                # 顯示結果
+                st.subheader(f"📊 {name} 的八字排盤結果")
+                
+                col1, col2, col3, col4 = st.columns(4)
+                with col1:
+                    year_p = result.get('year_pillar', {})
+                    st.metric("年柱", f"{year_p.get('stem', '')}{year_p.get('branch', '')}" if isinstance(year_p, dict) else str(year_p))
+                with col2:
+                    month_p = result.get('month_pillar', {})
+                    st.metric("月柱", f"{month_p.get('stem', '')}{month_p.get('branch', '')}" if isinstance(month_p, dict) else str(month_p))
+                with col3:
+                    day_p = result.get('day_pillar', {})
+                    st.metric("日柱", f"{day_p.get('stem', '')}{day_p.get('branch', '')}" if isinstance(day_p, dict) else str(day_p))
+                with col4:
+                    hour_p = result.get('hour_pillar', {})
+                    st.metric("時柱", f"{hour_p.get('stem', '')}{hour_p.get('branch', '')}" if isinstance(hour_p, dict) else str(hour_p))
+                
+                # 五行分析
+                st.subheader("🌟 五行分析")
+                elements = result.get('elements', {})
+                if elements:
+                    cols = st.columns(5)
+                    for i, (element, count) in enumerate(elements.items()):
+                        with cols[i]:
+                            st.metric(element, count)
+                
+                # 詳細解析
+                st.subheader("📖 命理解析")
+                st.info(result.get('analysis', '正在分析中...'))
+                
+            except Exception as e:
+                st.error(f"❌ 計算出錯: {str(e)}")
+                st.info("💡 這是演示版本，完整功能正在開發中")                    st.info("💡 這是演示版本，完整功能正在開發中")
         else:
             st.warning("⚠️ 請輸入姓名")
 
