@@ -68,15 +68,18 @@ if menu == "八字排盤":
                     st.subheader(f"📊 {name} 的八字排盤結果")
                     
                     col1, col2, col3, col4 = st.columns(4)
-                    with col1:
-                        year_p = result.get('year_pillar', {})
-                        st.metric("年柱", f"{year_p.get('stem', '')}{year_p.get('branch', '')}" if isinstance(year_p, dict) else str(year_p))                    with col2:
-                        month_p = result.get('month_pillar', {})
-                        st.metric("月柱", f"{month_p.get('stem', '')}{month_p.get('branch', '')}" if isinstance(month_p, dict) else str(month_p))                    with col3:
-                        day_p = result.get('day_pillar', {})
-                                            hour_p = result.get('hour_pillar', {})
-                        st.metric("日柱", f"{day_p.get('stem', '')}{day_p.get('branch', '')}" if isinstance(day_p, dict) else str(day_p))                    with col4:
-                        st.metric("時柱"f"{hour_p.get('stem', '')}{hour_p.get('branch', '')}" if isinstance(hour_p, dict) else str(hour_p))
+                                with col1:
+                year_p = result.get('year_pillar', {})
+                st.metric("年柱", f"{year_p.get('stem', '')}{year_p.get('branch', '')}" if isinstance(year_p, dict) else str(year_p))
+            with col2:
+                month_p = result.get('month_pillar', {})
+                st.metric("月柱", f"{month_p.get('stem', '')}{month_p.get('branch', '')}" if isinstance(month_p, dict) else str(month_p))
+            with col3:
+                day_p = result.get('day_pillar', {})
+                st.metric("日柱", f"{day_p.get('stem', '')}{day_p.get('branch', '')}" if isinstance(day_p, dict) else str(day_p))
+            with col4:
+                hour_p = result.get('hour_pillar', {})
+                st.metric("時柱", f"{hour_p.get('stem', '')}{hour_p.get('branch', '')}" if isinstance(hour_p, dict) else str(hour_p))
                     
                     # 五行分析
                     st.subheader("🌟 五行分析")
