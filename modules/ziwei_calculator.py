@@ -211,3 +211,6 @@ def quick_calculate(year: int, month: int, day: int, hour: int,
     """
     calculator = ZiweiCalculator()
     return calculator.calculate(year, month, day, hour, gender, calendar)
+
+# 為 app.py 提供的別名函數
+calculate_ziwei = quick_calculate
