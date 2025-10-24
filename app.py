@@ -1,6 +1,5 @@
 import streamlit as st
 from modules import bazi, ziwei
-from ai import divination_ai
 
 # 命理AI系统 - 主程序
 st.set_page_config(page_title="命理AI系统", page_icon="🔮", layout="wide")
