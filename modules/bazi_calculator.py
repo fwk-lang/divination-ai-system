@@ -5,7 +5,6 @@ Complete implementation based on traditional Ganzhi算法
 """
 
 from datetime import datetime
-from lunarcalendar import Converter, Solar
 import sys
 import os
 
