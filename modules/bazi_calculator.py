@@ -138,3 +138,6 @@ def quick_calculate(year: int, month: int, day: int, hour: int, gender: str = '�
     """
     calculator = BaziCalculator()
     return calculator.calculate(year, month, day, hour, gender)
+
+# 為 app.py 提供的別名函數
+calculate_bazi = quick_calculate
