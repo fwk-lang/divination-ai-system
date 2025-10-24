@@ -96,7 +96,7 @@ if menu == "八字排盤":
                     
                 except Exception as e:
                     st.error(f"❌ 計算出錯: {str(e)}")
-                                        st.info("⏱️ 這是演示版本，完整功能正在開發中")
+                                                st.info("⏱️ 這是演示版本，完整功能正在開發中")
         else:
             st.warning("⚠️ 請輸入姓名")
 
