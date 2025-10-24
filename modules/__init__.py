@@ -1,19 +1,17 @@
-# Divination Modules  
+# Divination Modules
 from . import bazi_calculator
-from . import ziwei_calculator  
+from . import ziwei_calculator
 from . import yijing_calculator
 
-# Create wrapper instances for the calculator modules
-_bazi_instance = bazi_calculator.bazi
-_ziwei_instance = ziwei_calculator.ziwei
-
-# Create wrapper objects with the expected API
+# Create wrapper objects to match app.py's expected API
 class bazi:
+    """Wrapper for bazi calculator"""
     @staticmethod
     def calculate_bazi(**kwargs):
-        return _bazi_instance.calculate(**kwargs)
+        return bazi_calculator.bazi.calculate(**kwargs)
 
 class ziwei:
+    """Wrapper for ziwei calculator"""
     @staticmethod
     def calculate_ziwei(**kwargs):
-        return _ziwei_instance.calculate(**kwargs)
+        return ziwei_calculator.calculate_ziwei(**kwargs)
